@@ -1,23 +1,482 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+    <!-- Schema Markup: Financial Product Optimization for Naver Snippet -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "FinancialService",
+        "name": "종신암보험 전문가 비교 센터",
+        "url": "https://www.yourinsurancecompany.com/whole-life-cancer-insurance",
+        "description": "2026년 종신암보험 상품의 상세 비교 분석 및 맞춤 설계 서비스를 제공합니다.",
+        "logo": "https://www.yourinsurancecompany.com/images/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+82-10-1234-5678",
+            "contactType": "customer service",
+            "areaServed": "KR",
+            "availableLanguage": "Korean"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "종신암보험 상품 목록",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "프리미엄 종신암보험 (갱신형)",
+                        "description": "만기환급형, 저렴한 초기 보험료",
+                        "category": "Whole Life Cancer Insurance"
+                    },
+                    "priceCurrency": "KRW",
+                    "price": "50000"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "비갱신형 종신암보험 (순수보장형)",
+                        "description": "만기까지 동일한 보험료, 고정적 지출 관리",
+                        "category": "Whole Life Cancer Insurance"
+                    },
+                    "priceCurrency": "KRW",
+                    "price": "80000"
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "1250"
+        }
+    }
+    </script>
+
+    <!-- Internal CSS for Improved Design and Readability -->
+    <style>
+        /* 기본 스타일 초기화 */
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* 부드러운 배경색 */
+            line-height: 1.8;
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* 레이아웃 컨테이너 */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: #007bff; /* 메인 색상: 파란색 계열 */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* 내비게이션 바 */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #f0f0f0;
+            color: #007bff;
+        }
+
+        /* 섹션 스타일 */
+        section {
+            padding: 40px 20px;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        section h2 {
+            font-size: 2em;
+            color: #0056b3;
+            border-bottom: 3px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        section h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+
+        /* CTA 버튼 스타일 */
+        .cta-button {
+            display: inline-block;
+            background-color: #00aaff; /* 밝은 파란색 */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #0088cc;
+            transform: translateY(-2px);
+        }
+
+        /* 표 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f8ff;
+            font-weight: bold;
+            color: #333;
+        }
+        td {
+            background-color: #fff;
+        }
+        table.highlight tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* 폼 스타일 */
+        form {
+            background-color: #f0f8ff;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        form input[type="text"], form input[type="email"], form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #28a745; /* 초록색 CTA */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 후기 섹션 */
+        .review-card {
+            background-color: #fafafa;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .review-card blockquote {
+            margin: 0;
+            font-style: italic;
+            color: #555;
+        }
+        .review-card cite {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 정보성 콘텐츠 - 리스트 스타일 */
+        ul.info-list {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        ul.info-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        /* 외부 링크 섹션 */
+        .external-links {
+            padding: 20px;
+            background-color: #f4f7fa;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .external-links h3 {
+            border: none;
+            color: #007bff;
+            margin-top: 0;
+        }
+        .external-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .external-links ul li {
+            margin-bottom: 10px;
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: #eee;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>2026년 종신암보험 가입, 현명한 선택을 위한 완벽 가이드</h1>
+            <p>암 발병률 증가와 의료비 상승 시대, 평생을 보장하는 <strong>종신암보험</strong>으로 미래를 대비하세요. <br>전문가와 함께 <strong>장점</strong>, <strong>단점</strong>, <strong>가격 비교</strong>를 통해 최적의 <strong>종신암보험 추천</strong>을 받아보세요.</p>
+            <a href="#consultation" class="cta-button">무료 맞춤 설계 상담 신청하기</a>
+        </div>
+    </header>
+
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+        <div class="container">
+            <ul>
+                <li><a href="#overview">종신암보험이란?</a></li>
+                <li><a href="#comparison">상품 비교 및 장단점</a></li>
+                <li><a href="#pricing">평균 가격 및 견적</a></li>
+                <li><a href="#review-section">고객 후기</a></li>
+                <li><a href="#consultation">1:1 맞춤 상담</a></li>
+            </ul>
+        </div>
     </nav>
-    <main>
-      <h1>Home page</h1>
+
+    <main class="container">
+
+        <!-- 섹션 1: 종신암보험 개요 (Why and What) -->
+        <section id="overview">
+            <h2>종신암보험, 왜 지금 필요한가요?</h2>
+            <p>암은 더 이상 남의 이야기가 아닙니다. 2026년 현재 통계청 자료에 따르면 한국인의 기대수명은 꾸준히 증가하고 있지만, 암 발생률 역시 높은 수준을 유지하고 있습니다. 특히 고령화 사회로 접어들면서 암 발병 시기에 대한 대비가 더욱 중요해지고 있습니다. 일반 암보험은 만기가 정해져 있어 노후에 보장 공백이 발생할 수 있습니다. <strong>종신암보험</strong>은 이러한 문제를 해결하기 위해 고안된 상품으로, <strong>평생 동안 암 보장을 유지</strong>할 수 있다는 <strong>장점</strong>이 있습니다.</p>
+
+            <h3>핵심 키워드 분석: 종신암보험의 특징</h3>
+            <ul class="info-list">
+                <li><strong>평생 보장:</strong> 만기가 80세나 100세로 정해진 일반 암보험과 달리, <strong>종신</strong>(終身)이라는 이름처럼 사망 시점까지 보장을 제공합니다.</li>
+                <li><strong>높은 진단금:</strong> 암 진단 시 고액의 진단금을 지급하여 치료비, 생활비, 간병비 등 다양한 지출에 유연하게 대처할 수 있도록 설계됩니다.</li>
+                <li><strong>갱신형 vs 비갱신형 선택:</strong> 보험료가 만기까지 일정하게 유지되는 <strong>비갱신형</strong>과 초기 보험료가 저렴한 <strong>갱신형</strong> 중 선택할 수 있습니다.</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 2: 상품 비교 (Comparative Analysis) -->
+        <section id="comparison">
+            <h2>종신암보험 vs. 일반 암보험 비교: 장단점 파악하기</h2>
+            <p>많은 분들이 <strong>종신암보험</strong>과 일반 <strong>암보험</strong>의 차이점을 궁금해하십니다. 두 상품은 '암 보장'이라는 공통점이 있지만, 보장 기간과 보험료 구조에서 명확한 <strong>차이점</strong>이 있습니다. 자신에게 맞는 상품을 선택하려면 각각의 <strong>장단점</strong>을 정확히 이해하는 것이 중요합니다.</p>
+
+            <h3>비교 분석: 종신형 vs. 일반형 (정기형)</h3>
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>종신암보험</th>
+                        <th>일반 암보험 (정기형)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>보장 기간</strong></td>
+                        <td>사망 시까지 평생 보장 (종신)</td>
+                        <td>정해진 기간(예: 80세, 100세 만기) 보장</td>
+                    </tr>
+                    <tr>
+                        <td><strong>보험료 수준</strong></td>
+                        <td>상대적으로 높음</td>
+                        <td>상대적으로 낮음 (저렴한곳 찾기 쉬움)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>보험료 변동</strong></td>
+                        <td>비갱신형 선택 가능, 초기 보험료 고정</td>
+                        <td>대부분 갱신형이 많아 노후에 보험료 부담 증가 가능성 있음</td>
+                    </tr>
+                    <tr>
+                        <td><strong>핵심 장점</strong></td>
+                        <td>노후 보장 공백 해소, 안정적인 보장</td>
+                        <td>단기간 저렴한 비용으로 집중 보장</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>결론:</strong> 젊고 경제 활동이 활발한 시기에는 일반 암보험으로 보장받고, 노후를 대비해 <strong>종신암보험</strong>을 추가로 가입하는 전략도 고려할 수 있습니다. <strong>종신보험 필요성</strong>에 대한 고민은 개인의 재정 상황과 가족력에 따라 달라집니다.</p>
+
+            <h3>갱신형 vs. 비갱신형 차이점 분석</h3>
+            <p>종신암보험을 선택할 때 가장 중요한 결정 중 하나는 <strong>갱신형</strong>과 <strong>비갱신형</strong> 중 무엇을 선택할지입니다. 두 유형 모두 <strong>장점</strong>과 <strong>단점</strong>이 명확하므로 신중하게 고려해야 합니다.</p>
+            <ul class="info-list">
+                <li><strong>비갱신형 (추천):</strong> 초기 보험료는 높지만 만기까지 보험료가 변하지 않습니다. 장기간 유지 시 총 납입 금액이 적을 수 있어 <strong>저렴한곳</strong>을 찾는 분들에게 유리합니다.</li>
+                <li><strong>갱신형:</strong> 초기 보험료는 저렴하지만 갱신 주기(3년, 5년, 10년 등)마다 보험료가 상승합니다. 갱신 시점에 나이와 암 위험률이 증가하므로 <strong>노후에 보험료 부담</strong>이 커질 수 있습니다.</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 3: 가격 분석 및 맞춤 설계 (Transactional Focus) -->
+        <section id="pricing">
+            <h2>종신암보험 가격 비교: 평균 금액 및 저렴한곳 찾기</h2>
+            <p>많은 분들이 <strong>종신암보험 가격</strong>에 대해 궁금해하십니다. <strong>평균 금액</strong>은 가입자의 나이, 성별, 건강 상태, 보장 금액, 특약 구성에 따라 크게 달라집니다. <strong>종신암보험 저렴한곳</strong>을 찾기 위해서는 단순히 가격만 비교하는 것이 아니라, 보장 내용 대비 <strong>가성비</strong>를 따져봐야 합니다.</p>
+
+            <h3>가입 시 고려해야 할 주요 요소</h3>
+            <ul class="info-list">
+                <li><strong>진단금 설정:</strong> 암 진단금은 최소 3,000만 원 이상을 추천합니다. <strong>고액암</strong>, <strong>2대 질병 보장</strong> 등 추가 특약 구성에 따라 보험료가 달라집니다.</li>
+                <li><strong>면책 기간/감액 기간:</strong> 대부분의 암보험은 가입 후 90일간의 <strong>면책 기간</strong>과 1~2년간의 <strong>감액 기간</strong>이 있습니다. 이 기간 동안 진단 시 보장 금액이 달라지므로 <strong>가입</strong> 시 반드시 확인해야 합니다.</li>
+                <li><strong>보험료 납입 기간:</strong> 10년 납, 20년 납, 30년 납 등 납입 기간을 설정할 수 있습니다. 납입 기간이 짧을수록 월 보험료는 높지만 총 납입액은 줄어들 수 있습니다.</li>
+            </ul>
+
+            <!-- 가격 계산 시뮬레이션 (사용자 입력 필드) -->
+            <form id="price-calculation-form">
+                <h3>나만의 종신암보험 예상 금액 계산해보기</h3>
+                <p>간단한 정보 입력으로 <strong>평균 보험료</strong>를 산출하여 <strong>저렴한곳</strong>을 비교해드립니다.</p>
+                <label for="age">나이:</label>
+                <input type="number" id="age" name="age" placeholder="만 나이를 입력해주세요." required>
+
+                <label for="gender">성별:</label>
+                <select id="gender" name="gender">
+                    <option value="male">남성</option>
+                    <option value="female">여성</option>
+                </select>
+
+                <label for="coverage">원하는 진단금액 (주계약):</label>
+                <select id="coverage" name="coverage">
+                    <option value="3000">3,000만원</option>
+                    <option value="5000">5,000만원</option>
+                    <option value="10000">1억 원</option>
+                </select>
+
+                <button type="submit"><strong>나의 예상 금액 확인하기</strong></button>
+            </form>
+        </section>
+
+        <!-- 섹션 4: 고객 후기 및 실제 가입 사례 (Trust building) -->
+        <section id="review-section">
+            <h2>종신암보험 내돈내산 후기: 실제 가입자들의 만족도</h2>
+            <p><strong>내돈내산 후기</strong>는 상품 선택의 중요한 기준이 됩니다. 실제 고객들은 <strong>종신암보험</strong> 가입 후 어떤 점에 만족하고, 어떤 점을 아쉬워했을까요? <strong>고객 후기</strong>를 통해 <strong>종신암보험 순위</strong>가 높은 상품들의 공통점을 찾아보세요.</p>
+
+            <!-- 후기 카드 1 -->
+            <div class="review-card">
+                <blockquote>
+                    "젊을 때 가입한 일반 암보험 만기가 다가와서 노후 보장이 걱정됐습니다. <strong>종신암보험</strong>을 알아봤는데, <strong>비갱신형</strong>으로 가입하니 나이가 들어도 보험료 걱정 없이 평생 보장받을 수 있다는 점이 가장 든든했습니다. 꼼꼼한 비교 덕분에 <strong>저렴한곳</strong>을 찾았습니다."
+                </blockquote>
+                <cite>- 이민정 (40대, 회사원)</cite>
+            </div>
+
+            <!-- 후기 카드 2 -->
+            <div class="review-card">
+                <blockquote>
+                    "가족력이 있어서 암보험에 관심이 많았습니다. 일반 보험은 보장 기간이 짧아서 고민하던 중 전문가 추천으로 <strong>종신암보험</strong>에 <strong>가입</strong>했습니다. 초기에 보험료가 조금 부담되긴 했지만, <strong>평생 보장</strong>이라는 <strong>장점</strong>이 훨씬 크다고 생각했습니다. 가입 순위가 높은 상품이라 믿고 선택했습니다."
+                </blockquote>
+                <cite>- 김지훈 (30대, 자영업자)</cite>
+            </div>
+
+            <a href="#consultation" class="cta-button">전문 상담받고 후기 남기기</a>
+        </section>
+        
+        <!-- 섹션 5: 자주 묻는 질문 및 시장 전망 (Informational Depth) -->
+        <section id="faq-section">
+            <h2>2026년 종신암보험 가입 순위 및 FAQ</h2>
+            <p>2026년 암보험 시장은 고령화와 신기술 발달로 인해 변화하고 있습니다. <strong>종신암보험 순위</strong>는 단순히 가격이 <strong>저렴한곳</strong>을 의미하는 것이 아니라, 보장 범위, 가입 조건, 고객 만족도 등을 종합적으로 고려한 결과입니다. 다음은 고객들이 자주 묻는 질문입니다.</p>
+
+            <h3>Q1: 종신암보험은 언제 가입하는 것이 가장 좋나요?</h3>
+            <p>A: 보험은 일찍 가입할수록 좋습니다. <strong>나이가 어릴수록 보험료가 저렴</strong>하며, 건강할 때 가입해야 <strong>면책 기간이나 감액 기간</strong> 없이 온전한 보장을 받을 수 있습니다. <strong>갱신형 vs 비갱신형</strong> 중 비갱신형을 선택한다면 일찍 가입하는 것이 총 납입액 측면에서 유리합니다.</p>
+
+            <h3>Q2: 종신보험과 종신암보험은 어떤 차이가 있나요?</h3>
+            <p>A: <strong>종신보험</strong>은 주계약이 '사망 보장'인 상품입니다. 반면 <strong>종신암보험</strong>은 주계약이 '암 진단금'이며, 암에 대한 평생 보장을 목적으로 합니다. 물론 종신암보험도 사망 보장 특약을 추가할 수 있지만, 주 목적이 다릅니다.</p>
+
+            <h3>Q3: 2026년 기준, 암 진단금은 얼마나 설정해야 하나요?</h3>
+            <p>A: <strong>평균적인 암 치료 비용</strong>을 고려할 때, 최소 3천만 원에서 5천만 원을 추천합니다. 이는 직접적인 치료비뿐만 아니라 요양 비용, 생활비 등 간접적인 지출을 고려한 금액입니다. 암 종류에 따라 치료비가 다르므로 <strong>고액암</strong> 특약도 함께 고려하는 것이 좋습니다.</p>
+
+        </section>
+
+        <!-- 섹션 6: 맞춤 상담 및 문의 (Final CTA) -->
+        <section id="consultation">
+            <h2>종신암보험 무료 맞춤 상담 신청</h2>
+            <p>복잡하고 다양한 <strong>종신암보험 상품</strong>들 사이에서 어떤 상품이 나에게 가장 적합할지 고민이 되시나요? <strong>내돈내산 후기</strong>나 <strong>순위</strong>만 보고 덜컥 가입하기보다는, 전문가의 <strong>1:1 맞춤 설계</strong>를 통해 나에게 최적화된 상품을 찾아야 합니다. 아래 입력란에 정보를 남겨주시면 <strong>저렴한곳</strong>과 보장이 확실한 상품을 비교 분석해드립니다.</p>
+
+            <!-- 상담 신청 폼 -->
+            <form id="contact-form">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" placeholder="이름을 입력해주세요." required>
+
+                <label for="phone">연락처:</label>
+                <input type="text" id="phone" name="phone" placeholder="전화번호를 입력해주세요." required>
+
+                <label for="consultation-type">상담 희망 내용:</label>
+                <select id="consultation-type" name="consultation-type">
+                    <option value="price-comparison">가격 비교 및 견적 요청</option>
+                    <option value="product-recommendation">상품 추천 및 가입 문의</option>
+                    <option value="guarantee-inquiry">보장 내용 문의</option>
+                </select>
+
+                <button type="submit"><strong>무료 상담 신청 완료</strong></button>
+            </form>
+        </section>
+
+        <!-- 섹션 7: 신뢰성 확보를 위한 외부 링크 (External Trust Signals) -->
+        <section class="external-links">
+            <h3>함께 많이 찾는 신뢰성 있는 정보 (외부 참고 자료)</h3>
+            <p>보다 정확하고 객관적인 정보를 위해 공인된 기관의 자료를 참고할 수 있습니다. <strong>종신암보험</strong>과 관련된 더 깊은 정보는 다음 사이트에서 확인해보세요.</p>
+            <ul>
+                <li><a href="https://ko.wikipedia.org/wiki/%EC%95%94%EB%B3%B4%ED%97%98" target="_blank">나무위키: 암보험 관련 정보</a> (암보험의 개요 및 역사)</li>
+                <li><a href="https://www.fss.or.kr/" target="_blank">금융감독원 (FSS)</a> (금융 상품 정보 및 소비자 보호)</li>
+                <li><a href="https://www.kidi.or.kr/" target="_blank">보험연구원 (KIDI)</a> (보험 산업 연구 및 통계 자료)</li>
+                <li><a href="https://www.nhis.or.kr/" target="_blank">국민건강보험공단</a> (국가 건강보험 관련 정보)</li>
+                <li><a href="https://terms.naver.com/" target="_blank">네이버 지식백과 - 암보험</a> (용어 설명 및 개념 이해)</li>
+            </ul>
+        </section>
+
     </main>
-  </body>
-</html>
+
+   
+  
